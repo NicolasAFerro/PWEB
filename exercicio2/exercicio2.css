@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #fcfcfc;
+}
+
+#formulario {
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #d2f898;
+  border: 1px solid #2f2f2f;
+  border-radius: 10px;
+  max-width: 800px;
+}
+
+label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #2f2f2f;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 10px;
+  border: 1px solid #fcfcfc;
+  border-radius: 15px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+input[type="submit"],
+button[type="reset"],
+button[type="button"] {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  color: #fcfcfc;
+  background-color: #2f2f2f;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+button[type="button"] {
+  background-color: #f6f930;
+}
+
+select {
+  padding: 1rem;
+  border: 1px solid #f6f930;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 10px;
+  background-image: linear-gradient(to bottom, #ffffff, #f6f930);
+}
+
+select:focus {
+  outline: 2px solid red;
+  border-color: #2f2f2f;
+}
+
+legend::before {
+  color: red;
+  content: "→";
+}
+
+legend {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2f2f2f;
+  margin-bottom: 20px;
+}
+
+input:invalid {
+  border: solid 2px red;
+}
+
+.rodape {
+  margin: 0 auto;
+  text-align: center;
+}
+
+fieldset {
+  border-color: #2f2f2f;
+}
