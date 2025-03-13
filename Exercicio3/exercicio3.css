@@ -1,0 +1,40 @@
+body {
+  font-family: "Segoe UI", Tahoma;
+  padding: 0;
+}
+.container {
+  display: flex;
+  align-items: center;
+  /*   width: 80%;
+  margin: 0 auto;
+  gap: 10px; */
+  justify-content: center;
+  gap: 10rem;
+}
+
+.card {
+  margin-top: 15px;
+  flex-basis: calc(100% / 3-20px);
+  background-color: hsl(221, 42%, 43%);
+  color: #ccc9dc;
+  text-align: center;
+  padding: 5rem;
+  border-radius: 7px;
+  box-shadow: 2px 2px 5px 2px rgba(204, 201, 220), 5px 5px 10px 5px #188d26;
+  height: 200px;
+}
+
+.card h2 {
+  margin-top: 0;
+}
+.card p {
+  margin-top: 10px 0;
+}
+button {
+  border-radius: 5px;
+  box-shadow: 1px 1px 23px 2px #ffff;
+}
+
+button:hover {
+  box-shadow: 2px 2px 23px 4px #2ec409;
+}
