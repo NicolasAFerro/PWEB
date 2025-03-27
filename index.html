@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formas de Inserir JS no HTML</title>
+    <script src="index.js"></script>
+  </head>
+
+  <script>
+    var resultado;
+    var resultado2;
+    var resultado3;
+    var resultado4;
+    var resultado5 = "Conteudo 5";
+    var resultado6 = "Conteudo 6";
+
+    resultado = prompt("qual o seu nome?");
+
+    var teste = function () {
+      var resultado6;
+      resultado5;
+      resultado7 = "dentro da função";
+      resultado3 = "Conteúdo 5 na função";
+      return "resultado da função";
+    };
+    resultado4 = teste();
+    resultado7 = "fora da função";
+
+    alert(`resultado=${resultado} \n resultado2=${resultado2} \n resultado3=${resultado3}
+    \n resultado4=${resultado4} \n resultado5=${resultado5} \n resultado6=${resultado6}
+    \n resultado7=${resultado7}`);
+
+    if (true) {
+      var teste = "conteudo teste";
+      let teste1 = "conteudo teste1";
+      alert("dentro do bloco" + teste);
+      alert("dentro do bloco1" + teste1);
+    }
+
+    alert("fora do bloco" + teste);
+    alert("fora do bloco1" + teste1);
+  </script>
+  <body></body>
+</html>
