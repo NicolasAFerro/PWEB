@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criando Objetos</title>
+  </head>
+  <body>
+    <script>
+      var aluno1 = new Object();
+
+      aluno1.ra = "0010101";
+      aluno1.nome = "joão";
+      alert(`ra: ${aluno1.ra} nome: ${aluno1.nome}`);
+
+      var aluno2 = {};
+      aluno2.ra = "1234";
+      aluno2["nome"] = "Gisele";
+      alert("ra: " + aluno2.ra + " nome: " + aluno2.nome);
+      aluno2["email do aluno"] = "gisel@gmail.com";
+      alert(aluno2["email do aluno"]);
+
+      var aluno3 = {
+        ra: "1234567",
+        nome: "mateus",
+      };
+      alert(`aluno3 ra:${aluno3.ra} nome: ${aluno3.nome}`);
+
+      //função construtuora antes do ecmaScript6
+      function Aluno(ra, nome) {
+        //var teste; private
+        this.ra = ra;
+        this.nome = nome;
+        this.MostrarDados = function () {
+          return `ra: ${this.ra} nome:${this.nome}`;
+        };
+      }
+      var aluno4 = new Aluno("9999", "JORGE");
+      alert(aluno4.MostrarDados());
+      alert(aluno4.nome);
+
+      var aluno5 = {};
+      var nome_propriedade = "ra";
+      aluno5[nome_propriedade] = "12345";
+      aluno5["nome"] = "gabrieeeela";
+      alert(`aluno5 ra${aluno5.ra} nome: ${aluno5.nome}`);
+
+      //função construtora sem parametros
+      function Aluno2() {
+        var ra; //privador
+        var nome;
+
+        this.setRa = function (value) {
+          this.ra = value;
+        };
+        this.getRa = function () {
+          return this.ra;
+        };
+        this.getNome = function () {
+          return this.nome;
+        };
+        this.setNome = function (value) {
+          this.nome = value;
+        };
+      }
+
+      var aluno6 = new Aluno2();
+      aluno6.setNome("Kaique");
+      aluno6.setRa("234");
+      alert("Aluno6 ra: " + aluno6.getRa() + "nome: " + aluno6.getNome());
+
+      //Herança
+      function AlunoADS() {
+        var numLab;
+        this.setnumLab = function (value) {
+          this.numLab = value;
+        };
+        this.getnumLab = function () {
+          return this.numLab;
+        };
+      }
+      AlunoADS.prototype = new Aluno2();
+      var aluno7 = new AlunoADS();
+      aluno7.setNome("deivid");
+      aluno7.setRa("123");
+      aluno7.setnumLab(5);
+      alert(
+        `aluno7: ${aluno7.getNome()}\n${aluno7.getRa()}\n${aluno7.getnumLab()}`
+      );
+    </script>
+  </body>
+</html>
