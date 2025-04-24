@@ -87,6 +87,133 @@
       alert(
         `aluno7: ${aluno7.getNome()}\n${aluno7.getRa()}\n${aluno7.getnumLab()}`
       );
+
+      //AGORA É CLASSE DE VERDADE CONTINUAÇÃO OBJETOS 23/04/25
+
+      //criar obj a partir de array
+      const arr = [
+        ["codigo", 1],
+        ["nome", "João"],
+        ["idade", 23],
+      ];
+      alert("to aqui");
+      const obj = Object.fromEntries(arr);
+      alert(obj);
+      alert(obj.nome);
+      alert(JSON.stringify(obj));
+
+      class Aluno1 {
+        constructor() {
+          this._ra;
+          this._nome;
+        }
+        setNome(value) {
+          this._nome = value;
+        }
+        getNome() {
+          return this._nome;
+        }
+        setRa(value) {
+          this._ra = value;
+        }
+        getRa() {
+          return this._ra;
+        }
+      }
+      var objAluno = new Aluno1();
+      objAluno.setNome("Adriano Imperador");
+      objAluno.setRa("999");
+      alert(`aluno 1\n nome:${objAluno.getNome()}\nra:${objAluno.getRa()}`);
+      //HERANÇA SEM GAMBIARRA
+      class AlunoADS1 extends Aluno1 {
+        constructor() {
+          //super chama o construtor da classe
+          super();
+          this._numLab;
+        }
+        setnumLab(value) {
+          this._numLab = value;
+        }
+        getnumLab() {
+          return this._numLab;
+        }
+      }
+      var objAlunoAds = new AlunoADS1();
+      objAlunoAds.setNome("vladimir");
+      objAlunoAds.setRa("666");
+      objAlunoAds.setnumLab(6);
+      alert(
+        `objAlunoAds\nnome:${objAlunoAds.getNome()}\nra:${objAlunoAds.getRa()}\nlab:${objAlunoAds.getnumLab()}`
+      );
+
+      //cópia dos objetos
+      var obj1 = new Object();
+      var obj2 = obj1;
+      obj1.nome = "vinicios";
+      alert(obj2.nome);
+
+      //métodos e atributos - publicos e privados
+      class ContaBancaria {
+        #cpf;
+        constructor(nome, saldoInicial) {
+          this.nome = nome;
+          this.saldo = saldoInicial;
+        }
+
+        //ai cria uma nova propriedade aqui
+        setCpf(value) {
+          this.cpf = value;
+        }
+        getCpf() {
+          return this.cpf;
+        }
+        getSaldo() {
+          return this.saldo;
+        }
+
+        //método publico
+        depositar(valor) {
+          this.saldo += valor;
+          this.#registrarTransacao(valor);
+          //utilizando o modificador # para mudar a visibilidade
+        }
+        #registrarTransacao(valor) {
+          console.log(
+            `DÉPOSITO DE R$: ${valor}\nSaldo R$: ${
+              this.saldo
+            } para cpf ${this.getCpf()} ou ${this.cpf}`
+          );
+        }
+      }
+
+      const conta = new ContaBancaria("Carlos", 10000);
+      conta.setCpf(123);
+      conta.depositar(50);
+
+      //o obj funcionario vai estar associando para o obj empresa
+      //aqui se eu mudar a empresa, reflete no funcinário pois está apontando para
+      // o mesmo endereço de memória
+      const objEmpresa = { empresa: "zf do brasil" };
+      const funcionario = Object.create(objEmpresa, {
+        nome: { value: "josé carlos" },
+        endereco: { value: "av. são paulo" },
+      });
+      console.log(funcionario.empresa);
+      console.log(funcionario.nome);
+      console.log(funcionario.endereco);
+
+      //o método Object.assign() é usado para copiar
+      //não aponta para o mesmo endereço de memória
+
+      const objNovaEmpresa = { empresa: "flex" };
+      const objVeiculo = { placa: "XXX 1234" };
+
+      const motorista = Object.assign(
+        { cpf: "1237777" },
+        objNovaEmpresa,
+        objVeiculo
+      );
+      console.log(motorista);
     </script>
   </body>
 </html>
