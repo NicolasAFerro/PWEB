@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testando QuerySelector</title>
+</head>
+<body>
+
+    <h1>Exemplo de Lista</h1>
+    <ul id="minhaLista">
+        <li class="item">Item 1</li>
+        <li class="item">Item 2</li>
+        <li>Item 3</li>
+        <li class="item">Item 4</li>
+    </ul>
+
+    <div class="nota">Esta é uma nota.</div>
+    <div class="alerta">Este é um alerta!</div>
+    <div class="nota">Outra nota aqui.</div>
+
+    <script>
+        const itensDaLista = document.querySelectorAll('ul li');
+        console.log('Elementos da lista (ul li):', itensDaLista);
+
+        const matches = document.querySelectorAll('div.nota, div.alerta');
+        console.log('Elementos com classe "nota" ou "alerta":', matches);
+
+        const todosOsItens = document.querySelectorAll('.item');
+        todosOsItens.forEach(item => {
+            console.log('Texto do item:', item.textContent);
+        });
+    </script>
+
+</body>
+</html>

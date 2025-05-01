@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+</head>
+
+<body>
+    <select name="cidades" id="cidades" onchange="testar();">
+        <option value="sorocaba">Sorocaba</option>
+        <option value="votorantim">Votorantim</option>
+        <option value="itu">Itu</option>
+        <option value="aracoiaba">Araçoiaba da Serra</option>
+    </select>
+    <script>
+        function testar() {
+            let selecao = document.getElementById("cidades");
+            let opcaoTexto = selecao.options[selecao.selectedIndex].text;
+            let opcaoValor = selecao.options[selecao.selectedIndex].value;
+
+            alert(`texto: ${opcaoTexto} \n valor: ${opcaoValor}`);
+        }
+    </script>
+</body>
+
+</html>

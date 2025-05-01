@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Teste DOM</title>
+
+
+</head>
+
+<body>
+    <script>
+        function executa() {
+            paragrafo = document.getElementById("primeiro");
+            paragrafo.innerHTML = "<strong>"+
+                " Texto do parágrafo primeiro: " +
+                paragrafo.innerHTML + "</strong>"
+
+            let x = document.getElementsByName("check");
+            let i;
+            for (i = 0; i < x.length; i++) {
+                if (x[i].type == "checkbox") {
+                    x[i].checked = true;
+                }
+            }
+        }
+    </script>
+
+    <p id="primeiro"> Boa Noite Turma 1 </p>
+
+    <input type="text" name="texto1" value="AAA" size=20>
+    <br>
+    <br>
+    ESCOLHA1: <input type="checkbox" name="check">
+    ESCOLHA2: <input type="checkbox" name="check">
+
+    <button onclick="return executa();"> clique aqui </button>
+</body>
+
+</html>
