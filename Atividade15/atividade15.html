@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=scr, initial-scale=1.0" />
+    <link rel="stylesheet" href="atividade15.css" />
+    <title>Atividade15</title>
+  </head>
+  <body>
+    <form onsubmit="validaForm(event)" id="form15">
+      <div class="form-component">
+        <label for="name">Nome</label>
+        <input type="text" name="name" id="txtname" />
+      </div>
+      <div class="form-component">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="txtemail" />
+      </div>
+      <div class="form-component">
+        <label for="coments">Comentários</label>
+        <textarea name="coments" id="txtcoments"></textarea>
+      </div>
+      <div id="pesquisa">
+        <fieldset>
+          <h2>Pesquisa:</h2>
+          <p id="questions">Primeira vez nessa página?</p>
+          <label for="rdbsim">Sim</label>
+          <input
+            type="radio"
+            name="rdbresponse"
+            id="rdbsim"
+            onchange="trocaText()"
+          />
+
+          <label for="rdbnao">Não</label>
+          <input
+            type="radio"
+            name="rdbresponse"
+            id="rdbnao"
+            onchange="trocaText()"
+          />
+        </fieldset>
+      </div>
+      <input type="submit" />
+      <input type="reset" />
+      <!-- <button onclick="cleanForm()">Limpar</button> -->
+    </form>
+
+    <script src="atividade15.js"></script>
+  </body>
+</html>

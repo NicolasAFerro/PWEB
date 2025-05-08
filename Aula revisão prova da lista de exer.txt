@@ -1,0 +1,45 @@
+//Aula revisão prova da lista de exercicio
+if(...) 
+{var x=10; let y=0} 
+//enxergo x fora do bloco; 
+
+function teste(){ 
+
+	var x=10; 
+	let y=0;
+
+}
+// não enxergo nenhum; 
+
+
+for(i=0;i<100;i++) 
+enxergo fora; 
+
+
+const na = [1,2,3]; 
+//posso mudar o valor mas não a estrutura 
+
+arrow 
+let soma=(n,v)=>{ 
+
+
+}
+-------------------------------------------- 
+
+Estudar os métodos de array; 
+
+//iteração com array em função
+function soma =(ar)=>{ 
+	arr.forEach(item=>console.log(item)); 
+
+}
+
+x=[1,2,3]; 
+soma(x);
+
+
+novoArray=arr.slice(0);
+
+estudar hierarquia 
+
+formar de acessa o dom- exerc 31 
