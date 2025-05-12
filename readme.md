@@ -80,7 +80,7 @@ d- Medias Queries são tecnologias que podem ser utilizadas para sites responsiv
 
 rgb,rgba,hsl
 
-## 18
+## 18 IMPORTANTE
 
 function declararion:
 
@@ -126,7 +126,7 @@ function contA (str){
 console.log(contA("aqui tem 2 Aaaaa"))
 ```
 
-## 20 esse é importante
+## 20 esse é IMPORTANTE
 
 Criar uma função em JavaScript que receba 5 números e retorne-os em ordem
 decrescente.
@@ -176,7 +176,7 @@ objLivro2.autor=null;
 
 ```
 
-## 25
+## 25 Sintaxe de obj
 
 Observe as formas em que foram criados os objetos abaixo, e assinale as que estão
 corretas:
@@ -244,3 +244,78 @@ class Aluno3 {
 let aluno6 = new Aluno3(123, "Ana");
 alert(`RA: ${aluno6._ra} Nome:${aluno6._nome}`);
 ```
+
+## 26
+
+O JSON é um formato simples e popular para armazenar e transferir dados
+aninhados ou hierárquicos (ver exemplos). É bastante comum na web, usado para
+enviar dados de um servidor para um navegador da web ou para transferir dados entre
+sistemas. Veja exemplo:
+
+## 27 Detalhe
+
+Supondo o seguinte código, informe o que será impresso no alert?R: 20
+
+Esse arguments a função acessa os argumentos passadoss, mesmo que  
+não tenha nada declarado dentro da função.
+o teste.apply() esse métodos permite passar os argumentos na forma de array
+
+```
+function teste() {
+let auxiliar = 0;
+for (let i = 0; i < arguments.length; i++) {
+ auxiliar += arguments[i]*2;
+}
+return auxiliar;
+}
+let arr1 = [1, 2,3, 4];
+alert(teste.apply(null, arr1));
+```
+
+## 28 IMPORTANTE
+
+Criar a classe Médico (usando class) com os atributos nome e CRM. Criar as
+subclasses (“filhas” da classe Médico) Pediatra com atributo idade máxima paciente e
+Geriatra com atributo idade do paciente. Criar um objeto da classe Pediatra e outro
+objeto da classe Geriatra
+
+```
+class Medico{
+  constructor(nome,crm){
+    this._nome=nome;
+    this._crm=crm;
+  }
+}
+
+class Pediatraextends Medico{
+  constructor(nome,crm,idade){
+    super(nome,crm);
+    this._idadeMaxPaciente=idade;
+  }
+}
+
+class Geriatra  extends Medico{
+  constructor(nome,crm,idade){
+    super();
+    this._idadePaciente=idade;
+  }
+}
+
+let pediatra= new Pediatra("joão",1234);
+```
+
+## 29
+
+## 30
+
+                   |-links[]
+        |-document |-Anchor[]
+
+window | |-images[]
+| |- Forms |-Button
+| |-Radio
+| |-TextArea
+| |...
+|-History
+|-Location
+|-Navigator
