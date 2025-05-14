@@ -306,16 +306,21 @@ let pediatra= new Pediatra("joão",1234);
 
 ## 29
 
-## 30
+## 30 
+
+
+```
 
                    |-links[]
+        
         |-document |-Anchor[]
 
-window | |-images[]
-| |- Forms |-Button
-| |-Radio
-| |-TextArea
-| |...
-|-History
-|-Location
-|-Navigator
+window |           |-images[]
+|.                  |- Forms |-Button
+|.                           |-Radio
+|                            |-TextArea
+|                             |...
+        |-History
+        |-Location
+        |-Navigator
+```
