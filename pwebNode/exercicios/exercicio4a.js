@@ -1,6 +1,6 @@
 function Parte1() {
   for (let i = 1; i <= 10; i++) {
-    console.log('primeira parte: ' + 1);
+    console.log('primeira parte: ' + i);
   }
 }
 setTimeout(Parte1, 2000);
