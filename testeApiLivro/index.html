@@ -8,8 +8,9 @@
   <body>
     <script>
       async function getData() {
-         const url =
-          'https://www.googleapis.com/books/v1/volumes?q=a&langRestrict=pt&maxResults=40';
+        try {
+          const url =
+            'https://www.googleapis.com/books/v1/volumes?q=a&langRestrict=pt&maxResults=40';
 
           const response = await fetch(url);
           if (!response.ok) {
@@ -22,14 +23,17 @@
           lsLivros.forEach(livro => {
             const info = livro.volumeInfo;
             console.log(
-              `Título: ${info.title}\nAutores: ${info.authors?.join(', ')}`,
+              `Título: ${info.title}\nAutores: ${info.authors?.join(
+                ', ',
+              )}\n genero:${info.categories}\n ano publicação:${
+                info.publishedDate
+              }`,
             );
           });
         } catch (error) {
           console.error('Erro na requisição:', error);
         }
       }
-
       window.onload = getData;
     </script>
   </body>
