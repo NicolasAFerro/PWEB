@@ -1,31 +1,24 @@
 import React, { useState } from 'react';
 import './CardBook.css';
-const CardBook = ({ book }) => {
+//tem que importar aqui
+import addLogo from '../assets/add.svg';
+import deleteLogo from '../assets/delete.svg';
+
+const CardBook = ({ book, isInList, onDelete, onAdd }) => {
   const [showDetails, setShowDetails] = useState(false);
-  const [modalMessage, setModalMessage] = useState(false);
+
+  const [showFormInput, setShowFormInput] = useState(false);
+  const [timeStarReading, setTimeStartReading] = useState();
+  const [timeEndReading, setTimeEndReading] = useState();
 
   function toogleDetails() {
-    console.log('to aqui');
     setShowDetails(prev => !prev);
+    setShowFormInput(false);
+  }
+  function toogleFormInput() {
+    setShowFormInput(prev => !prev);
   }
 
-  function addToLocalStorageList() {
-    const booksList = JSON.parse(localStorage.getItem('myBookList')) || [];
-    const alreadyExists = booksList.some(livro => livro.id === book.id);
-
-    if (alreadyExists) {
-      //alert('Este livro já está na lista.');
-      setModalMessage('Este livro já está na lista.');
-      return;
-    }
-
-    const newBookList = [...booksList, book];
-    localStorage.setItem('myBookList', JSON.stringify(newBookList));
-    //alert('Livro adicionado com sucesso!');
-    setModalMessage('Livro adicionado com sucesso!');
-    let teste = JSON.parse(localStorage.getItem('myBookList')) || [];
-    console.log(teste);
-  }
   return (
     <div className='card'>
       <p>titulo:{book.title}</p>
@@ -42,15 +35,50 @@ const CardBook = ({ book }) => {
             </p>
           )}
           {book.buyLink && <p>onde comprar:{book.buyLink}</p>}
+          {book.timeStarReading && <p>Data Inicio: {book.timeStarReading}</p>}
+          {book.timeEndReading && <p>Data Inicio: {book.timeEndReading}</p>}
         </div>
       )}
       <button onClick={toogleDetails}>
         {showDetails ? 'ver menos' : 'ver detalhes'}{' '}
       </button>
 
-      <button onClick={addToLocalStorageList}>Adicionar a lista</button>
+      {isInList ? (
+        <button onClick={() => onDelete(book.id)}>
+          <img src={deleteLogo} />
+        </button>
+      ) : (
+        <button onClick={toogleFormInput}>
+          <img src={addLogo} />
+        </button>
+      )}
 
-      {modalMessage && <div className='modal'>{modalMessage}</div>}
+      {showFormInput && (
+        <form
+          onSubmit={e => {
+            e.preventDefault();
+            onAdd(book, timeStarReading, timeEndReading);
+          }}
+        >
+          <h3>Periodo de Leitura</h3>
+          <label htmlFor='dtStartReading'>Data de Inicio</label>
+          <input
+            type='date'
+            id='dtStartReading'
+            onChange={e => {
+              setTimeStartReading(e.target.value);
+              //console.log(timeStarReading);
+            }}
+          />
+          <label htmlFor=''>Data de Fim</label>
+          <input
+            type='date'
+            id='dtEndReading'
+            onChange={e => setTimeEndReading(e.target.value)}
+          />
+          <input type='submit' text='Ok' />
+        </form>
+      )}
     </div>
   );
 };

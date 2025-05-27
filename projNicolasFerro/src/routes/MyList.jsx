@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CardBook from '../components/CardBook';
 
 const MyList = () => {
   const [myBookList, setMyBookList] = useState(() => {
     return JSON.parse(localStorage.getItem('myBookList')) || [];
   });
+  function deleteFromLocalStorageList(bookId) {
+    const updatedList = myBookList.filter(book => book.id !== bookId);
+    localStorage.setItem('myBookList', JSON.stringify(updatedList));
+    setMyBookList(updatedList); // <== Atualiza a tela
+  }
 
   return (
     <div>
@@ -12,7 +17,14 @@ const MyList = () => {
       <ul>
         {myBookList &&
           myBookList.map(book => {
-            return <CardBook key={book.id} book={book}></CardBook>;
+            return (
+              <CardBook
+                key={book.id}
+                book={book}
+                isInList={book.isInList}
+                onDelete={deleteFromLocalStorageList}
+              ></CardBook>
+            );
           })}
       </ul>
     </div>
