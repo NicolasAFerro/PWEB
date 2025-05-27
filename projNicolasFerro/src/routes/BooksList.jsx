@@ -4,6 +4,9 @@ import CardBook from '../components/CardBook';
 const BooksList = () => {
   const [lsBooks, setLsBooks] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [booksInLocalStorage, setBooksInLocalStorage] = useState(() => {
+    return JSON.parse(localStorage.getItem('myBookList')) || [];
+  });
 
   useEffect(() => {
     async function fetchBooks() {
@@ -17,8 +20,13 @@ const BooksList = () => {
         }
 
         const data = await response.json();
-        setLsBooks(data.items || []);
-        console.log(data);
+
+        const savedIds = booksInLocalStorage.map(book => book.id);
+
+        let booksNotInMyList = data.items.filter(data => {
+          return !savedIds.includes(data.id);
+        });
+        setLsBooks(booksNotInMyList);
       } catch (erro) {
         console.error('Erro ao buscar livros:', erro);
       } finally {
@@ -27,7 +35,7 @@ const BooksList = () => {
     }
 
     fetchBooks();
-  }, []);
+  }, [booksInLocalStorage]);
 
   if (loading) {
     return <p>Carregando livros...</p>;

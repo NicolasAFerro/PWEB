@@ -11,8 +11,8 @@ const CardBook = ({ book }) => {
 
   function addToLocalStorageList() {
     const booksList = JSON.parse(localStorage.getItem('myBookList')) || [];
-
     const alreadyExists = booksList.some(livro => livro.id === book.id);
+
     if (alreadyExists) {
       //alert('Este livro já está na lista.');
       setModalMessage('Este livro já está na lista.');
