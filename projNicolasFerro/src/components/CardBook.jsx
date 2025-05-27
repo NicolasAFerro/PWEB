@@ -4,6 +4,7 @@ import './CardBook.css';
 import addLogo from '../assets/add.svg';
 import deleteLogo from '../assets/delete.svg';
 
+//uso de CallBacks para a 'clase'
 const CardBook = ({ book, isInList, onDelete, onAdd }) => {
   const [showDetails, setShowDetails] = useState(false);
 
@@ -57,12 +58,22 @@ const CardBook = ({ book, isInList, onDelete, onAdd }) => {
         <form
           onSubmit={e => {
             e.preventDefault();
+            if (timeStarReading > timeEndReading) {
+              alert('data de inicio não pode ser maior que data de fim');
+
+              return;
+            }
+            if (new Date(timeStarReading) > new Date()) {
+              alert('data de inicio não pode ser futura');
+              return;
+            }
             onAdd(book, timeStarReading, timeEndReading);
           }}
         >
           <h3>Periodo de Leitura</h3>
           <label htmlFor='dtStartReading'>Data de Inicio</label>
           <input
+            required
             type='date'
             id='dtStartReading'
             onChange={e => {
@@ -72,6 +83,7 @@ const CardBook = ({ book, isInList, onDelete, onAdd }) => {
           />
           <label htmlFor=''>Data de Fim</label>
           <input
+            required
             type='date'
             id='dtEndReading'
             onChange={e => setTimeEndReading(e.target.value)}

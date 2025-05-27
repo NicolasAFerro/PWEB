@@ -8,7 +8,7 @@ const MyList = () => {
   function deleteFromLocalStorageList(bookId) {
     const updatedList = myBookList.filter(book => book.id !== bookId);
     localStorage.setItem('myBookList', JSON.stringify(updatedList));
-    setMyBookList(updatedList); // <== Atualiza a tela
+    setMyBookList(updatedList);
   }
 
   return (
