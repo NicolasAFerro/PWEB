@@ -9,6 +9,6 @@ fs.readFile('file.txt', (err, data) => {
   if (err) throw err;
   const registros = data.toString().split('\n');
   registros.forEach((registro, index) => {
-    console.log('segunda parte: ' + registro);
+    console.log('segunda parte: ' + registro + ' ' + index);
   });
 });
