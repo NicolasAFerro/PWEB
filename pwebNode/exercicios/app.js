@@ -1,9 +1,6 @@
-let express = require('express');
-let app = express();
+let app = require('./app/config/server'); //carregando o módulo do servidor
 
 let testeModu = require('./modulo1');
-
-app.set('view engine', 'ejs');
 
 app.get('/', function (req, res) {
   //res.send('<html><body>fatec sorocaba</body></html>');
