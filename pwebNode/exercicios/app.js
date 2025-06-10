@@ -1,6 +1,6 @@
 let app = require('./app/config/server'); //carregando o módulo do servidor
 let testeModu = require('./modulo1');
-
+//npm start app.js
 let rotaHome = require('./app/routes/home');
 rotaHome(app);
 
