@@ -1,7 +1,7 @@
 let app = require('./app/config/server'); //carregando o módulo do servidor
-let testeModu = require('./modulo1');
+
 //npm start app.js
-let rotaHome = require('./app/routes/home');
+/* let rotaHome = require('./app/routes/home');
 rotaHome(app);
 
 let rotaAdicionarUsuario = require('./app/routes/adicionar_usuario');
@@ -15,8 +15,8 @@ rotaCursos(app);
 
 let rotaProfessores = require('./app/routes/professores');
 rotaProfessores(app);
-
+ */
 app.listen(3000, function () {
   console.log('servidor com express carregado');
-  console.log(testeModu);
+  //console.log(testeModu);
 });
