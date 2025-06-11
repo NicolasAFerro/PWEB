@@ -1,6 +1,6 @@
 const { Pool } = require('pg');
 
-module.exports = function () {
+let connPg = function () {
   const pgConfig = {
     user: 'postgres',
     password: '1234',
@@ -11,4 +11,8 @@ module.exports = function () {
   };
 
   return new Pool(pgConfig); // Retorna a conexão com o banco
+};
+
+module.exports = function () {
+  return connPg;
 };
