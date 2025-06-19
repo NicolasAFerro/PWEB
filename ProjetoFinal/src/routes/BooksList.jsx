@@ -92,8 +92,10 @@ const BooksList = () => {
           type='text'
           placeholder='Digite um título de livro'
           value={searchTitle}
-          onChange={e => setSearchTitle(e.target.value)}
-          className='border border-gray-300 rounded px-4 py-2 flex-1 focus:outline-none focus:ring-2 focus:ring-indigo-500'
+          onChange={e =>
+            setSearchTitle(e.target.value)
+          } /* focus:outline-none Tira o padrao azul */
+          className='border border-black-300 rounded px-4 py-2 flex-1 focus:outline-none focus:ring-2 focus:ring-black'
         />
         <button
           onClick={handleSearch}
@@ -103,7 +105,7 @@ const BooksList = () => {
         </button>
         <button
           onClick={handleClearSearch}
-          className='bg-gray-300 text-gray-800 px-5 py-2 rounded hover:bg-gray-400 transition'
+          className='bg-gray-300 text-gray-800 border border-black-300  px-5 py-2 rounded hover:bg-gray-400 transition'
         >
           Limpar
         </button>
