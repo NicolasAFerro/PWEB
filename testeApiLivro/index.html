@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Books Test</title>
+  </head>
+  <body>
+    <script>
+      async function getData() {
+        try {
+          const url =
+            'https://www.googleapis.com/books/v1/volumes?q=a&langRestrict=pt&maxResults=40';
+
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+          }
+
+          const json = await response.json();
+          const lsLivros = json.items;
+          console.log(json);
+          lsLivros.forEach(livro => {
+            const info = livro.volumeInfo;
+            console.log(
+              `Título: ${info.title}\nAutores: ${info.authors?.join(
+                ', ',
+              )}\n genero:${info.categories}\n ano publicação:${
+                info.publishedDate
+              }`,
+            );
+          });
+        } catch (error) {
+          console.error('Erro na requisição:', error);
+        }
+      }
+      window.onload = getData;
+    </script>
+  </body>
+</html>
